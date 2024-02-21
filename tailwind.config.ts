@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const colors = require("tailwindcss/colors");
 
 const config: Config = {
   content: [
@@ -9,15 +10,24 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "hero-bg-lg": "url('/assets/home/background-home-desktop.jpg')",
+        "hero-bg-md": "url('/assets/home/background-home-tablet.jpg')",
+        "hero-bg-sm": "url('/assets/home/background-home-mobile.jpg')",
+      },
+      height: {
+        "15vh": "15vh",
+      },
+      width: {
+        "25vw": "25vw",
+        "33vw": "33vw",
       },
     },
     colors: {
+      ...colors,
       blue: "#0B0D17",
       lightBlue: "#D0D6F9",
       cream: "#FFFFFF",
+      gray: "#50535A",
     },
     fontFamily: {
       bellefair: ["Bellefair", "serif"],
