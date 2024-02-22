@@ -14,13 +14,6 @@ const config: Config = {
         "hero-bg-md": "url('/assets/home/background-home-tablet.jpg')",
         "hero-bg-sm": "url('/assets/home/background-home-mobile.jpg')",
       },
-      height: {
-        "15vh": "15vh",
-      },
-      width: {
-        "25vw": "25vw",
-        "33vw": "33vw",
-      },
     },
     colors: {
       ...colors,
