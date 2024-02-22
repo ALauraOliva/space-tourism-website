@@ -1,10 +1,9 @@
 "use client";
+import { useRef, useState } from "react";
+import { MobileMenuButton } from "./MobileMenuButton";
 import { NavButton } from "./NavButton";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef, useState } from "react";
-import Link from "next/link";
-import { MobileMenuButton } from "./MobileMenuButton";
 
 export default function NavBar() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -20,26 +19,32 @@ export default function NavBar() {
     if (!navOpen) {
       tl.to("#lineTop", {
         y: 5,
-      }).to(
-        "#lineBottom",
-        {
-          y: -5,
-        },
-        0
-      );
+      })
+        .to(
+          "#lineBottom",
+          {
+            y: -5,
+          },
+          0 //instant animation, no delay
+        )
+        .fromTo(
+          "#mobileMenu",
+          { opacity: 0, display: "none" }, // Animación de entrada
+          { opacity: 1, display: "flex", ease: "power3.out" }
+        );
 
       setNavOpen(true);
     } else {
-      tl.to("#lineTop", {
-        y: 0,
-      }).to(
-        "#lineBottom",
-        {
-          y: 0,
-        },
-        0
-      );
-      setNavOpen(false);
+      tl.to("#lineTop", { y: 0 })
+        .to("#lineBottom", { y: 0 }, 0)
+        .to("#mobileMenu", {
+          opacity: 0, // Animación de salida
+          duration: 0.2,
+          ease: "power3.out",
+          onComplete: () => {
+            setNavOpen(false);
+          },
+        });
     }
   });
 
@@ -68,20 +73,20 @@ export default function NavBar() {
       </button>
 
       {/* List of Links */}
-      {navOpen && (
-        <div
-          id="mobileMenu"
-          className="sm:hidden bg-opacity-15 bg-cream backdrop-blur-md w-screen h-screen absolute top-0 left- flex flex-col items-center
+
+      <div
+        id="mobileMenu"
+        className="sm:hidden bg-opacity-15 bg-cream backdrop-blur-md w-screen h-screen absolute top-0 left-0 flex flex-col items-center
         justify-center"
-        >
-          <div className="flex flex-col items-start justify-center gap-9">
-            <MobileMenuButton number={"00"} link={"home"} />
-            <MobileMenuButton number={"01"} link={"destination"} />
-            <MobileMenuButton number={"02"} link={"crew"} />
-            <MobileMenuButton number={"03"} link={"technology"} />
-          </div>
+      >
+        <div className="flex flex-col items-start justify-center gap-9">
+          <MobileMenuButton number={"00"} link={"home"} />
+          <MobileMenuButton number={"01"} link={"destination"} />
+          <MobileMenuButton number={"02"} link={"crew"} />
+          <MobileMenuButton number={"03"} link={"technology"} />
         </div>
-      )}
+      </div>
+
       {/* END List of Links */}
 
       {/* END Mobile Menu */}
