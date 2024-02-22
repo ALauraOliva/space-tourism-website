@@ -30,7 +30,7 @@ export default function NavBar() {
         .fromTo(
           "#mobileMenu",
           { opacity: 0, display: "none" }, // Animación de entrada
-          { opacity: 1, display: "flex", ease: "power3.out" }
+          { opacity: 1, display: "flex", zIndex: 10, ease: "power3.out" }
         );
 
       setNavOpen(true);
@@ -40,6 +40,7 @@ export default function NavBar() {
         .to("#mobileMenu", {
           opacity: 0, // Animación de salida
           duration: 0.2,
+          display: "none",
           ease: "power3.out",
           onComplete: () => {
             setNavOpen(false);
