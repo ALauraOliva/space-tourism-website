@@ -9,7 +9,7 @@ export default function Home() {
         className="w-[70vw] flex flex-col items-center mb-10 pt-[10vh] xl:w-[30vw] md:w-[40vw] lg:mb-0 lg:absolute
        lg:bottom-[15vh] lg:left-[5vw] lg:text-start lg:content-start"
       >
-        <h1 className="font-bellefair tracking-wider text-8xl lg:text-9xl w-max text-center max-sm:text-7xl">
+        <h1 className="font-bellefair tracking-wider text-8xl lg:text-9xl lg:w-full text-center max-sm:text-7xl lg:text-start">
           <span className="text-sm lg:text-2xl font-barlow font-extralight text-center max-sm:text-xs">
             SO, YOU WANT TO TRAVEL TO<br></br>
           </span>
