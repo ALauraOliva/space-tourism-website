@@ -77,7 +77,7 @@ export default function NavBar() {
 
       <div
         id="mobileMenu"
-        className="sm:hidden bg-opacity-15 bg-cream backdrop-blur-md w-screen h-screen absolute top-0 left-0 flex flex-col items-center
+        className="sm:hidden bg-opacity-15 bg-cream backdrop-blur-md w-screen min-h-screen absolute top-0 left-0 flex flex-col items-center
         justify-center"
       >
         <div className="flex flex-col items-start justify-center gap-9">
@@ -94,7 +94,7 @@ export default function NavBar() {
 
       <div
         className="max-sm:hidden flex lg:h-3/4 justify-center gap-10 backdrop-blur-md lg:w-3/5 bg-opacity-15 bg-cream lg:relative lg:before:absolute
-      lg:before:bg-gray lg:before:w-[33vw] lg:before:h-px lg:before:top-1/2 lg:before:-left-1/2 max-lg:before:hidden max-lg:h-full max-lg:w-4/5 "
+      lg:before:bg-gray lg:before:w-[33vw] lg:before:h-px lg:before:top-1/2 lg:before:-left-1/2 max-lg:before:hidden max-lg:h-full max-lg:w-4/5 z-20"
       >
         <NavButton number={"00"} link={"home"} />
         <NavButton number={"01"} link={"destination"} />
