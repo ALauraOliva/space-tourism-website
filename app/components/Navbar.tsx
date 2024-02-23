@@ -33,6 +33,16 @@ export default function NavBar() {
               setNavOpen(true);
             },
           }
+        )
+        .from(
+          "#mobileMenu a",
+          {
+            duration: 0.34,
+            opacity: 0,
+            y: 20,
+            stagger: 0.12,
+          },
+          0.5
         );
     } else {
       tl.to("#lineTop", { y: 0 })

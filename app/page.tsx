@@ -8,10 +8,6 @@ export default function Home() {
 
   useGSAP(
     () => {
-      gsap.set("#exploreBtn", {
-        opacity: 0,
-        x: "25vw",
-      });
       gsap.to("#bar", {
         duration: 1.5,
         delay: 0,
@@ -28,12 +24,19 @@ export default function Home() {
         zIndex: -1,
       });
 
-      gsap.to("#exploreBtn", {
+      gsap.from("#text span, #text h1, #text p", {
         delay: 1.5,
-        x: 0,
-        opacity: 1,
-        duration: 1.5,
-        ease: "power4.Out",
+        duration: 0.34,
+        opacity: 0,
+        y: 20,
+        stagger: 0.5,
+      });
+
+      gsap.from("#exploreBtn", {
+        delay: 3,
+        duration: 0.34,
+        opacity: 0,
+        y: 20,
       });
     },
     { scope: container }
@@ -62,6 +65,7 @@ export default function Home() {
       </div>
 
       <article
+        id="text"
         className="w-[70vw] flex flex-col items-center mb-10 pt-[10vh] xl:w-[30vw] md:w-[40vw] lg:mb-0 lg:absolute
        lg:bottom-[15vh] lg:left-[5vw] lg:text-start lg:content-start"
       >
