@@ -1,4 +1,4 @@
-export type link = {
+export type linkType = {
   number: string;
   link: string;
 };

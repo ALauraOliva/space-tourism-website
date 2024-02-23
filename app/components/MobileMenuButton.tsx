@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { link } from "@/types/custom";
+import { linkType } from "@/types/custom";
 
-export const MobileMenuButton = ({ number, link }: link) => {
+export const MobileMenuButton = ({ number, link }: linkType) => {
   return (
     <Link
       href={link === "home" ? "/" : `/${link}`}
