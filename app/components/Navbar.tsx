@@ -10,7 +10,6 @@ export default function NavBar() {
   const container = useRef<HTMLInputElement | null>(null);
   const { contextSafe } = useGSAP({ scope: container });
   const openNav: () => void = contextSafe(() => {
-    console.log("navOpen esta    ->", navOpen);
     const tl = gsap.timeline({
       defaults: {
         duration: 0.08,
@@ -20,20 +19,27 @@ export default function NavBar() {
     if (!navOpen) {
       tl.to("#lineTop", { y: 5 })
         .to("#lineBottom", { y: -5 }, 0)
-        .to("#mobileMenu", {
-          opacity: 1,
-          display: "flex",
-          ease: "power3.out",
-          onComplete: () => {
-            setNavOpen(true);
+        .fromTo(
+          "#mobileMenu",
+          {
+            xPercent: 100,
+            display: "flex",
           },
-        });
+          {
+            xPercent: 0,
+            ease: "power3.out",
+            duration: 1,
+            onComplete: () => {
+              setNavOpen(true);
+            },
+          }
+        );
     } else {
       tl.to("#lineTop", { y: 0 })
         .to("#lineBottom", { y: 0 }, 0)
         .to("#mobileMenu", {
-          opacity: 0, // Animación de salida
-          duration: 0.2,
+          xPercent: 100, // Animación de salida
+          duration: 1,
           display: "none",
           ease: "power3.out",
         });
@@ -41,7 +47,6 @@ export default function NavBar() {
       setNavOpen(false);
     }
   });
-  console.log("navopen pas a ->>>" + navOpen);
 
   return (
     <nav

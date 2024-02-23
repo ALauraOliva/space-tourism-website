@@ -9,7 +9,8 @@ export default function Home() {
   useGSAP(
     () => {
       gsap.set("#exploreBtn", {
-        y: "100vh",
+        opacity: 0,
+        x: "25vw",
       });
       gsap.to("#bar", {
         duration: 1.5,
@@ -29,7 +30,8 @@ export default function Home() {
 
       gsap.to("#exploreBtn", {
         delay: 1.5,
-        y: 0,
+        x: 0,
+        opacity: 1,
         duration: 1.5,
         ease: "power4.Out",
       });
