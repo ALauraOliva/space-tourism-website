@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavBar from "./components/Navbar";
+import NavBar from "./components/NavBar/Navbar";
 
-//? if use react hooks, nees to add 'use client'
+//? if use react hooks, needs to add 'use client'
 
 export const metadata: Metadata = {
-  title: "Space Tourism",
+  title: { default: "Space Tourism", template: "%s | Space Tourism" },
   description: "Website for space tourism",
   keywords: "space, tourism, website, galatic thrills",
 };

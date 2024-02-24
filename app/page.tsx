@@ -1,7 +1,12 @@
 "use client";
+
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+
+// export const metadata={
+//   title:"Home"
+// }
 
 export default function Home() {
   const container = useRef<HTMLInputElement | null>(null);
