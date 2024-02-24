@@ -7,7 +7,7 @@ export const NavButton = ({ number, link }: linkType) => {
   return (
     <Link
       href={link === "home" ? "/" : `/${link}`}
-      className={`group text-cream font-barlow font-extralight flex flex-col justify-center items-center relative
+      className={`group text-cream font-barlow flex flex-col justify-center items-center relative
       tracking-widest before:absolute before:w-0 before:h-0.5 before:bottom-0 before:rounded-sm hover:before:bg-cream
       hover:before:w-full before:transition-all before:duration-500`}
     >

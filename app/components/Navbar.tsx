@@ -58,12 +58,29 @@ export default function NavBar() {
     }
   });
 
+  useGSAP(
+    () => {
+      gsap.from("#containerLinks, #logo", {
+        delay: 3.6,
+        duration: 1,
+        opacity: 0,
+        y: -20,
+      });
+    },
+    { scope: container }
+  );
+
   return (
     <nav
       className="flex items-center justify-between  w-full h-[15vh] fixed z-10"
       ref={container}
     >
-      <img src="/svg/logo.svg" alt="logo-navbar SVG" className="pl-7 z-10" />
+      <img
+        id="logo"
+        src="/svg/logo.svg"
+        alt="logo-navbar SVG"
+        className="pl-7 z-10"
+      />
       {/* Mobile Menu */}
       <button
         id="toggler"
@@ -102,6 +119,7 @@ export default function NavBar() {
       {/* END Mobile Menu */}
 
       <div
+        id="containerLinks"
         className="max-sm:hidden flex lg:h-3/4 justify-center gap-10 backdrop-blur-md lg:w-3/5 bg-opacity-15 bg-cream lg:relative lg:before:absolute
       lg:before:bg-gray lg:before:w-[33vw] lg:before:h-px lg:before:top-1/2 lg:before:-left-1/2 max-lg:before:hidden max-lg:h-full max-lg:w-4/5 pr-7"
       >

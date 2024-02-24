@@ -24,7 +24,7 @@ const config: Config = {
     },
     fontFamily: {
       bellefair: ["Bellefair", "serif"],
-      barlow: ["Barlow Condensed", "sans-serif"],
+      barlow: ["Barlow", "sans-serif"],
     },
   },
   plugins: [],

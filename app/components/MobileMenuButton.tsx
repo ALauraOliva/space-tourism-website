@@ -5,7 +5,7 @@ export const MobileMenuButton = ({ number, link }: linkType) => {
   return (
     <Link
       href={link === "home" ? "/" : `/${link}`}
-      className="group w-full text-cream font-barlow font-extralight flex flex-col justify-center items-start relative tracking-widest before:absolute
+      className="group w-full text-cream font-barlow flex flex-col justify-center items-start relative tracking-widest before:absolute
 before:w-0 before:h-0.5 before:-bottom-3 before:rounded-sm hover:before:bg-cream hover:before:w-full before:transition-all before:duration-500"
     >
       <div className="overflow-hidden relative">
