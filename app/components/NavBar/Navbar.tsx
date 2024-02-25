@@ -108,10 +108,18 @@ export default function NavBar() {
         justify-center"
       >
         <div className="flex flex-col items-start justify-center gap-9">
-          <MobileMenuButton number={"00"} link={"home"} />
-          <MobileMenuButton number={"01"} link={"destination"} />
-          <MobileMenuButton number={"02"} link={"crew"} />
-          <MobileMenuButton number={"03"} link={"technology"} />
+          <MobileMenuButton number={"00"} link={"home"} openNav={openNav} />
+          <MobileMenuButton
+            number={"01"}
+            link={"destination"}
+            openNav={openNav}
+          />
+          <MobileMenuButton number={"02"} link={"crew"} openNav={openNav} />
+          <MobileMenuButton
+            number={"03"}
+            link={"technology"}
+            openNav={openNav}
+          />
         </div>
       </div>
 

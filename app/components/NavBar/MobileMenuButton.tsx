@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { linkType } from "@/types/custom";
 
-export const MobileMenuButton = ({ number, link }: linkType) => {
+export const MobileMenuButton = ({ number, link, openNav }: linkType) => {
   return (
     <Link
       href={link === "home" ? "/" : `/${link}`}
+      onClick={openNav}
       className="group w-full text-cream font-barlow flex flex-col justify-center items-start relative tracking-widest before:absolute
 before:w-0 before:h-0.5 before:-bottom-3 before:rounded-sm hover:before:bg-cream hover:before:w-full before:transition-all before:duration-500"
     >
