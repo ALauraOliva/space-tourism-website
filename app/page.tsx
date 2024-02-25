@@ -78,7 +78,7 @@ export default function Home() {
           </span>
           SPACE
         </h1>
-        <p className="font-barlow mt-10 tracking-wide lg:text-xl text-center lg:text-start line-clamp-6">
+        <p className="leading-8 font-thin mt-10 tracking-wide text-center lg:text-start line-clamp-6">
           Let's face it; if you want to go to space, you might as well genuinely
           go to outer space and not hover kind on the edge of it. Well sit back,
           and relax because we'll give you a truly out of this world experience!

@@ -29,11 +29,11 @@ export default function Destination() {
             alt={planet.name}
             width={200}
             height={200}
-            className="md:min-h-[60vh] md:w-auto md:pt-11"
+            className="lg:min-h-[60vh] md:w-auto md:pt-11 md:min-h-[50vh]"
           ></Image>
         </div>
-        <div className=" lg:w-4/5 col-span-2 row-start-2 text-cream lg:col-span-1 lg:row-span-2 lg:col-start-2 flex flex-col items-center lg:pt-[10vh]">
-          <ul className=" w-3/4 sm:w-1/2 lg:w-full  flex justify-between title lg:justify-start lg:gap-8">
+        <div className="lg:w-4/5 col-span-2 row-start-2 text-cream lg:col-span-1 lg:row-span-2 lg:col-start-2 flex flex-col items-center lg:pt-[8vh]">
+          <ul className=" w-3/4 sm:w-1/2 lg:w-full flex justify-around title lg:justify-start lg:gap-8 pt-7">
             {destinations.map((destination, index) => (
               <button
                 key={index}
@@ -45,25 +45,25 @@ export default function Destination() {
               </button>
             ))}
           </ul>
-          <h4 className="lg:w-full font-bellefair uppercase text-7xl mt-5">
+          <h4 className="lg:w-full font-bellefair uppercase text-7xl mt-12">
             {planet.name}
           </h4>
-          <p className="text-center w-3/4 sm:w-1/2 lg:full mb-8 lg:text-start lg:self-start lg:w-full lg:pr-10">
+          <p className="text-center w-3/4 sm:w-1/2 lg:full mb-8 lg:text-start lg:self-start lg:w-full lg:pr-10 leading-8 font-thin">
             {planet.description}
           </p>
-          <div className="lg:w-full w-3/4 sm:w-1/2 h-[1.5px] bg-cream"></div>
-          <div className="lg:flex lg:self-start lg:gap-11">
-            <div className="mt-8 title text-center lg:text-start">
+          <div className="lg:w-full w-3/4 sm:w-1/2 h-[0.5px] bg-cream"></div>
+          <div className="md:flex lg:self-start md:gap-11">
+            <div className="mt-8 title text-center lg:text-start flex flex-col">
               AVG. DISTANCE
               <br />
-              <span className="font-bellefair uppercase text-4xl tracking-normal">
+              <span className="font-bellefair uppercase text-4xl tracking-normal pt-2">
                 {planet.distance}
               </span>
             </div>
-            <div className="mt-8 title text-center mb-8 lg:text-start">
+            <div className="mt-8 title text-center lg:text-start flex flex-col mb-4">
               EST. TRAVEL TIME
               <br />
-              <span className="font-bellefair uppercase text-4xl tracking-normal">
+              <span className="font-bellefair uppercase text-4xl tracking-normal pt-2">
                 {planet.travel}
               </span>
             </div>
