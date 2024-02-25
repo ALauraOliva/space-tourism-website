@@ -12,6 +12,15 @@
   src: url("/fonts/Bellefair-Regular.woff2");
 }
 
+@layer components {
+  .title {
+    @apply text-2xl font-barlow text-cream uppercase tracking-widest;
+  }
+  .title-span {
+    @apply font-black text-trueGray-600;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;

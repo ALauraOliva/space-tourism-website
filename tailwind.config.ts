@@ -13,6 +13,12 @@ const config: Config = {
         "hero-bg-lg": "url('/assets/home/background-home-desktop.jpg')",
         "hero-bg-md": "url('/assets/home/background-home-tablet.jpg')",
         "hero-bg-sm": "url('/assets/home/background-home-mobile.jpg')",
+        "destination-bg-sm":
+          "url('/assets/destination/background-destination-mobile.jpg')",
+        "destination-bg-md":
+          "url('/assets/destination/background-destination-tablet.jpg')",
+        "destination-bg-lg":
+          "url('/assets/destination/background-destination-desktop.jpg')",
       },
     },
     colors: {

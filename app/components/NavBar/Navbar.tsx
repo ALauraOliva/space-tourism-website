@@ -6,6 +6,7 @@ import { NavButton } from "./NavButton";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function NavBar() {
   const listLinks: string[] = ["home", "destination", "crew", "technology"];
@@ -80,11 +81,13 @@ export default function NavBar() {
       className="flex items-center justify-between  w-full h-[15vh] fixed z-10"
       ref={container}
     >
-      <img
+      <Image
         id="logo"
         src="/svg/logo.svg"
         alt="logo-navbar SVG"
         className="pl-7 z-10"
+        width={80}
+        height={80}
       />
       <div
         id="containerLinks"
@@ -93,6 +96,7 @@ export default function NavBar() {
       >
         {listLinks.map((link, index) => (
           <NavButton
+            key={index}
             number={`0${index.toString()}`}
             linkName={link}
             isActive={pathname === link ? true : false}
@@ -126,6 +130,7 @@ export default function NavBar() {
         <div className="flex flex-col items-start justify-center gap-9">
           {listLinks.map((link, index) => (
             <MobileMenuButton
+              key={index}
               number={`0${index.toString()}`}
               linkName={link}
               openNav={openNav}
