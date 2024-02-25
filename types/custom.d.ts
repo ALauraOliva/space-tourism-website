@@ -1,5 +1,6 @@
 export type linkType = {
   number: string;
-  link: string;
+  linkName: string;
   openNav?: () => void;
+  isActive?: boolean;
 };

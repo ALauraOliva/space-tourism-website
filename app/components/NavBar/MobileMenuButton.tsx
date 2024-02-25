@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { linkType } from "@/types/custom";
 
-export const MobileMenuButton = ({ number, link, openNav }: linkType) => {
+export const MobileMenuButton = ({ number, linkName, openNav }: linkType) => {
   return (
     <Link
-      href={link === "home" ? "/" : `/${link}`}
+      href={linkName === "home" ? "/" : `/${linkName}`}
       onClick={openNav}
       className="group w-full text-cream font-barlow flex flex-col justify-center items-start relative tracking-widest before:absolute
 before:w-0 before:h-0.5 before:-bottom-3 before:rounded-sm hover:before:bg-cream hover:before:w-full before:transition-all before:duration-500"
@@ -14,7 +14,7 @@ before:w-0 before:h-0.5 before:-bottom-3 before:rounded-sm hover:before:bg-cream
           <span className="font-semibold text-8xl max-sm:text-4xl">
             {number}&nbsp;&nbsp;
           </span>
-          {link}
+          {linkName}
         </div>
         <div
           className="absolute left-0 translate-y-[50%] rotate-12 transition duration-500 ease-out
@@ -23,7 +23,7 @@ before:w-0 before:h-0.5 before:-bottom-3 before:rounded-sm hover:before:bg-cream
           <span className="font-semibold text-8xl max-sm:text-4xl">
             {number}&nbsp;&nbsp;
           </span>
-          {link}
+          {linkName}
         </div>
       </div>
     </Link>

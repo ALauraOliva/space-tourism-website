@@ -5,8 +5,12 @@ import { MobileMenuButton } from "./MobileMenuButton";
 import { NavButton } from "./NavButton";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { usePathname } from "next/navigation";
 
 export default function NavBar() {
+  const listLinks: string[] = ["home", "destination", "crew", "technology"];
+  const pathname: string =
+    usePathname() === "/" ? "home" : usePathname().substring(1);
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const container = useRef<HTMLInputElement | null>(null);
   const { contextSafe } = useGSAP({ scope: container });
@@ -82,6 +86,20 @@ export default function NavBar() {
         alt="logo-navbar SVG"
         className="pl-7 z-10"
       />
+      <div
+        id="containerLinks"
+        className="max-sm:hidden flex lg:h-3/4 justify-center gap-10 backdrop-blur-md lg:w-3/5 bg-opacity-15 bg-cream lg:relative lg:before:absolute
+      lg:before:bg-gray lg:before:w-[33vw] lg:before:h-px lg:before:top-1/2 lg:before:-left-1/2 max-lg:before:hidden max-lg:h-full max-lg:w-4/5 pr-7"
+      >
+        {listLinks.map((link, index) => (
+          <NavButton
+            number={`0${index.toString()}`}
+            linkName={link}
+            isActive={pathname === link ? true : false}
+          />
+        ))}
+      </div>
+
       {/* Mobile Menu */}
       <button
         id="toggler"
@@ -100,43 +118,22 @@ export default function NavBar() {
         ></div>
       </button>
 
-      {/* List of Links */}
-
       <div
         id="mobileMenu"
         className="hidden bg-opacity-15 bg-cream backdrop-blur-md w-screen min-h-screen absolute top-0 left-0 flex-col items-center
         justify-center"
       >
         <div className="flex flex-col items-start justify-center gap-9">
-          <MobileMenuButton number={"00"} link={"home"} openNav={openNav} />
-          <MobileMenuButton
-            number={"01"}
-            link={"destination"}
-            openNav={openNav}
-          />
-          <MobileMenuButton number={"02"} link={"crew"} openNav={openNav} />
-          <MobileMenuButton
-            number={"03"}
-            link={"technology"}
-            openNav={openNav}
-          />
+          {listLinks.map((link, index) => (
+            <MobileMenuButton
+              number={`0${index.toString()}`}
+              linkName={link}
+              openNav={openNav}
+            />
+          ))}
         </div>
       </div>
-
-      {/* END List of Links */}
-
       {/* END Mobile Menu */}
-
-      <div
-        id="containerLinks"
-        className="max-sm:hidden flex lg:h-3/4 justify-center gap-10 backdrop-blur-md lg:w-3/5 bg-opacity-15 bg-cream lg:relative lg:before:absolute
-      lg:before:bg-gray lg:before:w-[33vw] lg:before:h-px lg:before:top-1/2 lg:before:-left-1/2 max-lg:before:hidden max-lg:h-full max-lg:w-4/5 pr-7"
-      >
-        <NavButton number={"00"} link={"home"} />
-        <NavButton number={"01"} link={"destination"} />
-        <NavButton number={"02"} link={"crew"} />
-        <NavButton number={"03"} link={"technology"} />
-      </div>
     </nav>
   );
 }
