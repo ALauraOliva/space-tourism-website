@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar/Navbar";
 //? if use react hooks, needs to add 'use client'
 
 export const metadata: Metadata = {
-  title: { default: "Space Tourism", template: "%s | Space Tourism" },
+  title: { default: "Home | Space Tourism", template: "%s | Space Tourism" },
   description: "Website for space tourism",
   keywords: "space, tourism, website, galatic thrills",
 };
