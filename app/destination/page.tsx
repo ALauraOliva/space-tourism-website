@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import data from "@/lib/data.json";
 import Image from "next/image";
-import gsap, { Expo } from "gsap";
+import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 export default function Destination() {
@@ -72,10 +72,10 @@ export default function Destination() {
           id="destinationTitles"
           className="h-fit col-span-2 title flex flex-col items-center justify-center gap-8 lg:col-span-1 lg:row-span-2"
         >
-          <h3 className="text-center sm:text-left w-full sm:pl-10">
+          <h1 className="text-center sm:text-left w-full sm:pl-10">
             <span className="title-span">01</span>
             &nbsp;&nbsp;&nbsp;Pick your destination
-          </h3>
+          </h1>
           <Image
             src={`/assets/destination/image-${planet.name}.webp`}
             alt={planet.name}
@@ -97,7 +97,7 @@ export default function Destination() {
               >
                 <div
                   id="border"
-                  className={`uppercase pb-2 border-b-[2.5px]  tracking-widest text-xl ${
+                  className={`uppercase pb-2 border-b-[2.5px] tracking-widest text-xl hover:opacity-60 ${
                     planet.name === destination.name
                       ? " border-cream"
                       : "border-transparent"
@@ -108,9 +108,9 @@ export default function Destination() {
               </button>
             ))}
           </ul>
-          <h4 className="lg:w-full font-bellefair uppercase text-7xl mt-10">
+          <h2 className="lg:w-full font-bellefair uppercase text-7xl mt-10">
             {planet.name}
-          </h4>
+          </h2>
           <p className="text-center w-3/4 sm:w-1/2 lg:full mb-8 lg:text-start lg:self-start lg:w-full lg:pr-10 leading-8 font-thin">
             {planet.description}
           </p>

@@ -19,6 +19,9 @@ const config: Config = {
           "url('/assets/destination/background-destination-tablet.jpg')",
         "destination-bg-lg":
           "url('/assets/destination/background-destination-desktop.jpg')",
+        "crew-bg-lg": "url('/assets/crew/background-crew-desktop.jpg')",
+        "crew-bg-md": "url('/assets/crew/background-crew-tablet.jpg')",
+        "crew-bg-sm": "url('/assets/crew/background-crew-mobile.jpg')",
       },
     },
     colors: {
