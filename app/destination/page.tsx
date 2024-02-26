@@ -67,7 +67,7 @@ export default function Destination() {
       ref={container}
       className="bg-destination-bg-sm w-screen min-h-screen bg-left-top md:bg-destination-bg-md lg:bg-destination-bg-lg bg-cover"
     >
-      <div className="grid grid-cols-2 grid-rows-1 gap-4 w-screen pt-[14vh] lg:min-h-screen lg:pt-[20vh] md:pt-[20vh] lg:w-[85vw] m-auto">
+      <div className="grid grid-cols-2 grid-rows-1 gap-4 w-screen pt-[14vh] lg:min-h-screen lg:pt-[20vh] lg:w-[85vw] m-auto">
         <div
           id="destinationTitles"
           className="h-fit col-span-2 title flex flex-col items-center justify-center gap-8 lg:col-span-1 lg:row-span-2"
@@ -97,10 +97,10 @@ export default function Destination() {
               >
                 <div
                   id="border"
-                  className={`uppercase pb-2 border-b-[2.5px] tracking-widest text-xl hover:opacity-60 ${
+                  className={`uppercase pb-2 border-b-[2.5px] tracking-widest text-xl ${
                     planet.name === destination.name
                       ? " border-cream"
-                      : "border-transparent"
+                      : "border-transparent hover:opacity-60"
                   }`}
                 >
                   {destination.name}

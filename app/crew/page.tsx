@@ -9,20 +9,29 @@ import { useGSAP } from "@gsap/react";
 export default function Crew() {
   const container = useRef<HTMLInputElement | null>(null);
   const { crew } = data;
-  const [member, setMember] = useState(crew[0]); //read moon data first
+  const [member, setMember] = useState(crew[0]); //read the first default member data
+  const changeMember = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const memberSelected = crew.find(
+      (filterMember) => filterMember.name === event.currentTarget.value
+    );
+
+    if (memberSelected) {
+      setMember(memberSelected);
+    }
+  };
 
   return (
     <main
       ref={container}
-      className="bg-crew-bg-sm w-screen bg-center-bottom md:bg-crew-bg-md lg:bg-crew-bg-lg bg-cover min-h-screen"
+      className="bg-crew-bg-sm w-screen bg-center-bottom md:bg-crew-bg-md lg:bg-crew-bg-lg bg-cover min-h-screen bg-bottom"
     >
-      <div className="grid grid-cols-2 grid-rows-[fit-content] gap-4 w-screen pt-[14vh] lg:min-h-screen md:pt-[20vh] lg:w-[85vw] m-auto">
+      <div className="grid grid-cols-2 grid-rows-[fit-content] gap-4 w-screen pt-[14vh] lg:min-h-screen lg:w-[85vw] m-auto lg:pt-[20vh]">
         <h1 className="col-start-1 col-span-2 title text-center md:text-left md:pl-10 lg:col-span-1">
           <span className="title-span">02</span>
           &nbsp;&nbsp;&nbsp;Meet your crew
         </h1>
 
-        <div className="col-start-1 col-span-2 row-start-2 md:row-start-3 lg:row-start-1 lg:row-span-3 lg:col-start-2 lg:col-span-1">
+        <div className="col-start-1 col-span-2 row-start-2 md:row-start-4 lg:row-start-1 lg:row-span-3 lg:col-start-2 lg:col-span-1">
           <Image
             src={`/assets/crew/image-${member.name
               .replace(" ", "-")
@@ -30,10 +39,25 @@ export default function Crew() {
             alt={member.name}
             width={200}
             height={200}
-            className="lg:min-h-[80vh] lg:pt-11 md:min-h-[50vh] mx-auto w-auto"
+            className="lg:h-[80vh] lg:pt-11 md:h-[50vh] mx-auto w-auto"
           ></Image>
-          <div className="w-full h-[1px]"></div>
+          <div className="w-4/5 h-[0.5px] bg-trueGray-500 mx-auto rounded-sm lg:hidden"></div>
         </div>
+
+        <ul className="col-span-2 row-start-3 flex justify-center items-start gap-5 lg:col-start-1 lg:col-span-1 lg:pl-10 lg:justify-start">
+          {crew.map((memberList, index) => (
+            <button
+              key={index}
+              value={memberList.name}
+              className={`w-3 h-3 rounded-full my-5  ${
+                memberList.name === member.name
+                  ? "bg-cream"
+                  : "bg-trueGray-500 hover:bg-warmGray-400"
+              }`}
+              onClick={changeMember}
+            ></button>
+          ))}
+        </ul>
 
         <div className="col-span-2 text-cream md:row-start-2 lg:row-start-2 lg:col-start-1 lg:col-span-1 lg:pl-10 lg:mt-28 md:mt-8">
           <h2 className="text-trueGray-500 font-bellefair uppercase text-xl mx-auto text-center lg:text-start lg:text-4xl">
