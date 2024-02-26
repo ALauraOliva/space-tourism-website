@@ -14,10 +14,10 @@ export default function Home() {
       });
 
       gsap.from("#overlay div > h2, #overlay div > h3", {
-        y: 200,
+        y: 115,
         delay: 0,
-        ease: "power2.inOut",
-        duration: 2,
+        ease: "power2.out",
+        duration: 0.8,
         //skewY: 7,
       });
 

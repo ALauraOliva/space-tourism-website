@@ -9,7 +9,7 @@ export default function Destination() {
   const [planet, setPlanet] = useState(destinations[0]); //read moon data first
   const changePlanet = (event: React.MouseEvent<HTMLButtonElement>) => {
     const planetSelected = destinations.find(
-      (filterPlanet) => filterPlanet.name === event.target.value
+      (filterPlanet) => filterPlanet.name === event.currentTarget.value
     );
     if (planetSelected) {
       setPlanet(planetSelected);
@@ -37,15 +37,22 @@ export default function Destination() {
             {destinations.map((destination, index) => (
               <button
                 key={index}
-                className="uppercase"
                 value={destination.name}
                 onClick={changePlanet}
               >
-                {destination.name}
+                <div
+                  className={`uppercase pb-2 border-b-[2.5px]  tracking-widest text-xl ${
+                    planet.name === destination.name
+                      ? " border-cream "
+                      : "border-transparent"
+                  }`}
+                >
+                  {destination.name}
+                </div>
               </button>
             ))}
           </ul>
-          <h4 className="lg:w-full font-bellefair uppercase text-7xl mt-12">
+          <h4 className="lg:w-full font-bellefair uppercase text-7xl mt-10">
             {planet.name}
           </h4>
           <p className="text-center w-3/4 sm:w-1/2 lg:full mb-8 lg:text-start lg:self-start lg:w-full lg:pr-10 leading-8 font-thin">
