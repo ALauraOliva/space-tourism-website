@@ -24,20 +24,20 @@ export default function Home() {
       gsap.to("#overlay div > h2, #overlay div > h3", {
         opacity: 0,
         y: -100,
-        delay: 2,
+        delay: 1,
         ease: "power2.inOut",
         duration: 1.5,
       });
 
       gsap.to("#overlay", {
         yPercent: -100,
-        delay: 2,
+        delay: 1,
         ease: "power2.inOut",
         duration: 1.8,
       });
 
       gsap.from("#text span, #text h1, #text p, #exploreBtn", {
-        delay: 3.6,
+        delay: 2.6,
         duration: 1,
         ease: "power2.inOut",
         opacity: 0,

@@ -64,17 +64,17 @@ export default function NavBar() {
     }
   });
 
-  useGSAP(
-    () => {
-      gsap.from("#containerLinks, #logo", {
-        delay: 3.6,
-        duration: 1,
-        opacity: 0,
-        y: -20,
-      });
-    },
-    { scope: container }
-  );
+  // useGSAP(
+  //   () => {
+  //     gsap.from("#containerLinks, #logo", {
+  //       delay: 3.6,
+  //       duration: 1,
+  //       opacity: 0,
+  //       y: -20,
+  //     });
+  //   },
+  //   { scope: container }
+  // );
 
   return (
     <nav

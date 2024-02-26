@@ -1,25 +1,77 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import data from "@/lib/data.json";
 import Image from "next/image";
+import gsap, { Expo } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function Destination() {
+  const container = useRef<HTMLInputElement | null>(null);
   const { destinations } = data;
   const [planet, setPlanet] = useState(destinations[0]); //read moon data first
   const changePlanet = (event: React.MouseEvent<HTMLButtonElement>) => {
     const planetSelected = destinations.find(
       (filterPlanet) => filterPlanet.name === event.currentTarget.value
     );
-    if (planetSelected) {
-      setPlanet(planetSelected);
-    }
+
+    gsap.fromTo(
+      "#destinationTitles > img, #planetDesc>:not(ul)",
+      {
+        delay: 0,
+        x: 0,
+      },
+      {
+        x: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "circ.out",
+        onComplete: () => {
+          if (planetSelected) {
+            setPlanet(planetSelected);
+          }
+          gsap.fromTo(
+            "#destinationTitles > img , #planetDesc>:not(ul)",
+            {
+              delay: 0,
+              x: -100,
+              opacity: 0,
+            },
+            {
+              x: 0,
+              duration: 1.5,
+              opacity: 1,
+              ease: "slow",
+            }
+          );
+        },
+      }
+    );
   };
 
+  useGSAP(
+    () => {
+      gsap.from("#destinationTitles, #planetDesc", {
+        delay: 0,
+        duration: 2.5,
+        opacity: 0,
+        scale: 0.4,
+        ease: "circ.inOut",
+      });
+    },
+    { scope: container }
+  );
+
   return (
-    <main className="bg-destination-bg-sm w-screen min-h-screen bg-left-top sm:bg-destination-bg-md lg:bg-destination-bg-lg bg-cover">
+    <main
+      ref={container}
+      className="bg-destination-bg-sm w-screen min-h-screen bg-left-top sm:bg-destination-bg-md lg:bg-destination-bg-lg bg-cover"
+    >
       <div className="grid grid-cols-2 grid-rows-1 gap-4 w-screen pt-[14vh] lg:min-h-screen lg:pt-[20vh] sm:pt-[20vh] lg:w-[85vw] m-auto">
-        <div className="h-fit col-span-2 title flex flex-col items-center justify-center gap-8 lg:col-span-1 lg:row-span-2">
+        <div
+          id="destinationTitles"
+          className="h-fit col-span-2 title flex flex-col items-center justify-center gap-8 lg:col-span-1 lg:row-span-2"
+        >
           <h3 className="text-center sm:text-left w-full sm:pl-10">
             <span className="title-span">01</span>
             &nbsp;&nbsp;&nbsp;Pick your destination
@@ -32,8 +84,11 @@ export default function Destination() {
             className="lg:min-h-[60vh] md:w-auto md:pt-11 md:min-h-[50vh]"
           ></Image>
         </div>
-        <div className="lg:w-4/5 col-span-2 row-start-2 text-cream lg:col-span-1 lg:row-span-2 lg:col-start-2 flex flex-col items-center lg:pt-[8vh]">
-          <ul className=" w-3/4 sm:w-1/2 lg:w-full flex justify-around title lg:justify-start lg:gap-8 pt-7">
+        <div
+          id="planetDesc"
+          className="lg:w-4/5 col-span-2 row-start-2 text-cream lg:col-span-1 lg:row-span-2 lg:col-start-2 flex flex-col items-center lg:pt-[8vh]"
+        >
+          <ul className="w-3/4 sm:w-1/2 lg:w-full flex justify-around title lg:justify-start lg:gap-8 pt-7">
             {destinations.map((destination, index) => (
               <button
                 key={index}
@@ -41,9 +96,10 @@ export default function Destination() {
                 onClick={changePlanet}
               >
                 <div
+                  id="border"
                   className={`uppercase pb-2 border-b-[2.5px]  tracking-widest text-xl ${
                     planet.name === destination.name
-                      ? " border-cream "
+                      ? " border-cream"
                       : "border-transparent"
                   }`}
                 >
