@@ -15,17 +15,62 @@ export default function Crew() {
       (filterMember) => filterMember.name === event.currentTarget.value
     );
 
-    if (memberSelected) {
-      setMember(memberSelected);
-    }
+    gsap.fromTo(
+      "#gridCrew>:not(h1, ul)",
+      {
+        delay: 0,
+        x: 0,
+      },
+      {
+        x: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "circ.out",
+        onComplete: () => {
+          if (memberSelected) {
+            setMember(memberSelected);
+          }
+          gsap.fromTo(
+            "#gridCrew>:not(h1, ul)",
+            {
+              delay: 0,
+              x: -100,
+              opacity: 0,
+            },
+            {
+              x: 0,
+              duration: 1.5,
+              opacity: 1,
+              ease: "slow",
+            }
+          );
+        },
+      }
+    );
   };
+
+  useGSAP(
+    () => {
+      gsap.from("#gridCrew", {
+        delay: 0,
+        duration: 2.5,
+        opacity: 0,
+        scale: 0.4,
+        ease: "circ.inOut",
+      });
+    },
+    { scope: container }
+  );
 
   return (
     <main
       ref={container}
       className="bg-crew-bg-sm w-screen bg-center-bottom md:bg-crew-bg-md lg:bg-crew-bg-lg bg-cover min-h-screen bg-bottom"
     >
-      <div className="grid grid-cols-2 grid-rows-[fit-content] gap-4 w-screen pt-[14vh] lg:min-h-screen lg:w-[85vw] m-auto lg:pt-[20vh]">
+      <div
+        id="gridCrew"
+        className="grid grid-cols-2 grid-rows-[fit-content] gap-4 w-screen pt-[14vh] lg:min-h-screen lg:w-[85vw] m-auto lg:pt-[20vh]"
+      >
         <h1 className="col-start-1 col-span-2 title text-center md:text-left md:pl-10 lg:col-span-1">
           <span className="title-span">02</span>
           &nbsp;&nbsp;&nbsp;Meet your crew
