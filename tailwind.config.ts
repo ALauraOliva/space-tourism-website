@@ -22,6 +22,12 @@ const config: Config = {
         "crew-bg-lg": "url('/assets/crew/background-crew-desktop.jpg')",
         "crew-bg-md": "url('/assets/crew/background-crew-tablet.jpg')",
         "crew-bg-sm": "url('/assets/crew/background-crew-mobile.jpg')",
+        "technology-bg-lg":
+          "url('/assets/technology/background-technology-desktop.jpg')",
+        "technology-bg-md":
+          "url('/assets/technology/background-technology-tablet.jpg')",
+        "technology-bg-sm":
+          "url('/assets/technology/background-technology-mobile.jpg')",
       },
     },
     colors: {
