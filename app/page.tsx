@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <main
       ref={container}
-      className="max-w-screen min-h-screen bg-hero-bg-sm sm:bg-hero-bg-md lg:bg-hero-bg-lg bg-cover
+      className="max-w-screen min-h-screen bg-hero-bg-sm md:bg-hero-bg-md lg:bg-hero-bg-lg bg-cover
       bg-center flex flex-col justify-center items-center text-cream lg:flex-row gap-24 relative"
     >
       <div
@@ -72,8 +72,8 @@ export default function Home() {
         className="w-[70vw] flex flex-col items-center mb-10 pt-[10vh] xl:w-[30vw] md:w-[40vw] lg:mb-0 lg:absolute
        lg:bottom-[15vh] lg:left-[5vw] lg:text-start lg:content-start"
       >
-        <h1 className="font-bellefair tracking-wider text-8xl lg:text-9xl lg:w-full text-center max-sm:text-7xl lg:text-start">
-          <span className="text-sm lg:text-2xl font-barlow text-center max-sm:text-xs">
+        <h1 className="font-bellefair tracking-wider text-8xl lg:text-9xl lg:w-full text-center max-md:text-7xl lg:text-start">
+          <span className="text-sm lg:text-2xl font-barlow text-center max-md:text-xs">
             SO, YOU WANT TO TRAVEL TO<br></br>
           </span>
           SPACE

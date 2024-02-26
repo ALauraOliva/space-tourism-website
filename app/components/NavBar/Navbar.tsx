@@ -78,7 +78,7 @@ export default function NavBar() {
 
   return (
     <nav
-      className="flex items-center justify-between  w-full h-[15vh] fixed z-10"
+      className="flex items-center justify-between  w-full h-[15vh] fixed z-10 md:h-[10vh] lg:h-[15vh]"
       ref={container}
     >
       <Image
@@ -91,8 +91,8 @@ export default function NavBar() {
       />
       <div
         id="containerLinks"
-        className="max-sm:hidden flex lg:h-3/4 justify-center gap-10 backdrop-blur-md lg:w-3/5 bg-opacity-15 bg-cream lg:relative lg:before:absolute
-      lg:before:bg-gray lg:before:w-[33vw] lg:before:h-px lg:before:top-1/2 lg:before:-left-1/2 max-lg:before:hidden max-lg:h-full max-lg:w-4/5 pr-7"
+        className="max-md:hidden flex lg:h-3/4 justify-center gap-10 backdrop-blur-md lg:w-3/5 bg-opacity-15 bg-cream lg:relative lg:before:absolute
+      lg:before:bg-gray lg:before:w-[33vw] lg:before:h-px lg:before:top-1/2 lg:before:-left-1/2 max-lg:before:hidden max-lg:h-4/5 max-lg:w-4/5 pr-7"
       >
         {listLinks.map((link, index) => (
           <NavButton
@@ -109,7 +109,7 @@ export default function NavBar() {
         id="toggler"
         onClick={openNav}
         value={navOpen.toString()}
-        className="sm:hidden rounded-full w-14 h-14 backdrop-blur-sd transition-all hover:bg-cream hover:bg-opacity-15 relative
+        className="md:hidden rounded-full w-14 h-14 backdrop-blur-sd transition-all hover:bg-cream hover:bg-opacity-15 relative
         duration-200 ease-in-out flex flex-col items-center group z-10 mr-7"
       >
         <div
