@@ -10,44 +10,47 @@ export default function Crew() {
   const container = useRef<HTMLInputElement | null>(null);
   const { crew } = data;
   const [member, setMember] = useState(crew[0]); //read the first default member data
-  const changeMember = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const memberSelected = crew.find(
-      (filterMember) => filterMember.name === event.currentTarget.value
-    );
+  const { contextSafe } = useGSAP({ scope: container });
+  const changeMember = contextSafe(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      const memberSelected = crew.find(
+        (filterMember) => filterMember.name === event.currentTarget.value
+      );
 
-    gsap.fromTo(
-      "#gridCrew>:not(h1, ul)",
-      {
-        delay: 0,
-        x: 0,
-      },
-      {
-        x: 100,
-        opacity: 0,
-        duration: 1.2,
-        ease: "circ.out",
-        onComplete: () => {
-          if (memberSelected) {
-            setMember(memberSelected);
-          }
-          gsap.fromTo(
-            "#gridCrew>:not(h1, ul)",
-            {
-              delay: 0,
-              x: -100,
-              opacity: 0,
-            },
-            {
-              x: 0,
-              duration: 1.5,
-              opacity: 1,
-              ease: "slow",
-            }
-          );
+      gsap.fromTo(
+        "#gridCrew>:not(h1, ul)",
+        {
+          delay: 0,
+          x: 0,
         },
-      }
-    );
-  };
+        {
+          x: 100,
+          opacity: 0,
+          duration: 1.2,
+          ease: "circ.out",
+          onComplete: () => {
+            if (memberSelected) {
+              setMember(memberSelected);
+            }
+            gsap.fromTo(
+              "#gridCrew>:not(h1, ul)",
+              {
+                delay: 0,
+                x: -100,
+                opacity: 0,
+              },
+              {
+                x: 0,
+                duration: 1.5,
+                opacity: 1,
+                ease: "slow",
+              }
+            );
+          },
+        }
+      );
+    }
+  );
 
   useGSAP(
     () => {

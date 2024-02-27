@@ -10,44 +10,47 @@ export default function Destination() {
   const container = useRef<HTMLInputElement | null>(null);
   const { destinations } = data;
   const [planet, setPlanet] = useState(destinations[0]); //read moon data first
-  const changePlanet = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const planetSelected = destinations.find(
-      (filterPlanet) => filterPlanet.name === event.currentTarget.value
-    );
+  const { contextSafe } = useGSAP({ scope: container });
+  const changePlanet = contextSafe(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      const planetSelected = destinations.find(
+        (filterPlanet) => filterPlanet.name === event.currentTarget.value
+      );
 
-    gsap.fromTo(
-      "#destinationTitles > img, #planetDesc>:not(ul)",
-      {
-        delay: 0,
-        x: 0,
-      },
-      {
-        x: 100,
-        opacity: 0,
-        duration: 1.2,
-        ease: "circ.out",
-        onComplete: () => {
-          if (planetSelected) {
-            setPlanet(planetSelected);
-          }
-          gsap.fromTo(
-            "#destinationTitles > img , #planetDesc>:not(ul)",
-            {
-              delay: 0,
-              x: -100,
-              opacity: 0,
-            },
-            {
-              x: 0,
-              duration: 1.5,
-              opacity: 1,
-              ease: "slow",
-            }
-          );
+      gsap.fromTo(
+        "#destinationTitles > img, #planetDesc>:not(ul)",
+        {
+          delay: 0,
+          x: 0,
         },
-      }
-    );
-  };
+        {
+          x: 100,
+          opacity: 0,
+          duration: 1.2,
+          ease: "circ.out",
+          onComplete: () => {
+            if (planetSelected) {
+              setPlanet(planetSelected);
+            }
+            gsap.fromTo(
+              "#destinationTitles > img , #planetDesc>:not(ul)",
+              {
+                delay: 0,
+                x: -100,
+                opacity: 0,
+              },
+              {
+                x: 0,
+                duration: 1.5,
+                opacity: 1,
+                ease: "slow",
+              }
+            );
+          },
+        }
+      );
+    }
+  );
 
   useGSAP(
     () => {

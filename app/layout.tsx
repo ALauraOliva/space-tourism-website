@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "./components/NavBar/Navbar";
+import CustomCursor from "./components/cursor/CustomCursor";
 
 //? if use react hooks, needs to add 'use client'
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NavBar />
+        <CustomCursor />
         {children}
       </body>
     </html>
