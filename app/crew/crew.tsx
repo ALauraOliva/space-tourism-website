@@ -111,7 +111,7 @@ export default function Crew() {
           <h3 className="font-bellefair text-3xl text-cream uppercase text-center py-5 lg:text-start lg:text-6xl md:text-4xl">
             {member.name}
           </h3>
-          <p className="text-center w-3/4 mx-auto leading-7 font-thin mb-4 md:w-1/2 lg:text-start lg:mx-0 lg:w-2/3">
+          <p className="text-center w-3/4 mx-auto leading-7 font-thin mb-4 md:w-1/2 lg:text-start lg:mx-0 lg:w-2/3 text-lightBlue">
             {member.bio}
           </p>
         </div>

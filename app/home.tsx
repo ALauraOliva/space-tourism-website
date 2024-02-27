@@ -3,6 +3,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const container = useRef<HTMLInputElement | null>(null);
@@ -37,7 +38,7 @@ export default function Home() {
       });
 
       gsap.from("#text span, #text h1, #text p, #exploreBtn", {
-        delay: 2.6,
+        delay: 2.1,
         duration: 1,
         ease: "power2.inOut",
         opacity: 0,
@@ -73,24 +74,25 @@ export default function Home() {
        lg:bottom-[15vh] lg:left-[5vw] lg:text-start lg:content-start"
       >
         <h1 className="font-bellefair tracking-wider text-8xl lg:text-9xl lg:w-full text-center max-md:text-7xl lg:text-start">
-          <span className="text-sm lg:text-2xl font-barlow text-center max-md:text-xs">
+          <span className="text-sm lg:text-2xl font-barlow text-center max-md:text-xs text-lightBlue">
             SO, YOU WANT TO TRAVEL TO<br></br>
           </span>
           SPACE
         </h1>
-        <p className="leading-8 font-thin mt-10 tracking-wide text-center lg:text-start line-clamp-6">
+        <p className="leading-8 font-thin mt-10 tracking-wide text-center lg:text-start line-clamp-6 text-lightBlue">
           Let's face it; if you want to go to space, you might as well genuinely
           go to outer space and not hover kind on the edge of it. Well sit back,
           and relax because we'll give you a truly out of this world experience!
         </p>
       </article>
-      <button
+      <Link
+        href={"/destination"}
         id="exploreBtn"
         className="bg-cream text-black font-bellefair tracking-widest p-10 w-44 h-44 rounded-full text-xl lg:absolute
-      lg:bottom-[15vh] lg:right-[15vw] lg:w-56 lg:h-56 lg:text-2xl m-3"
+      lg:bottom-[15vh] lg:right-[15vw] lg:w-56 lg:h-56 lg:text-2xl m-3 flex justify-center items-center"
       >
         EXPLORE
-      </button>
+      </Link>
     </main>
   );
 }

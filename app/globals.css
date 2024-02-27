@@ -27,6 +27,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: #1b1f37;
+  color: white;
+}
+
 html,
 body {
   overflow-x: hidden;
