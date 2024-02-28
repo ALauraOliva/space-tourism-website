@@ -5,7 +5,6 @@ import data from "@/lib/data.json";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import getImagePath from "@/lib/getImageBackground";
 
 export default function Crew() {
   const container = useRef<HTMLInputElement | null>(null); //GSAP
@@ -67,21 +66,11 @@ export default function Crew() {
     { scope: container }
   );
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    handleResize(); // Call initially
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const imagePath = getImagePath("crew", windowWidth);
-
   return (
-    <main ref={container} className="w-screen min-h-screen relative">
-      <Image src={imagePath} alt="background-crew" fill priority></Image>
+    <main
+      ref={container}
+      className="bg-crew-bg-sm w-screen md:bg-crew-bg-md lg:bg-crew-bg-lg bg-cover min-h-screen bg-bottom"
+    >
       <div
         id="gridCrew"
         className="grid grid-cols-2 grid-rows-[fit-content] gap-4 w-screen pt-[14vh] lg:min-h-screen lg:w-[85vw] m-auto lg:pt-[20vh]"
@@ -99,6 +88,7 @@ export default function Crew() {
             alt={member.name}
             width={200}
             height={200}
+            priority
             className="lg:h-[80vh] lg:pt-11 md:h-[50vh] mx-auto w-auto"
           ></Image>
           <div className="w-4/5 h-[0.5px] bg-trueGray-500 mx-auto rounded-sm lg:hidden"></div>

@@ -1,13 +1,22 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import gsap from "gsap";
 
 export default function CustomCursor() {
+  const [isWideScreen, setIsWideScreen] = useState(true);
+
   useEffect(() => {
-    const cursor: HTMLElement | null = document.getElementById("custom-cursor");
-    const links: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("a");
-    const cursorText: HTMLElement | null =
-      document.getElementById("text-cursor");
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    const cursor = document.getElementById("custom-cursor");
+    const links = document.querySelectorAll("a");
+    const cursorText = document.getElementById("text-cursor");
 
     const onMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event;
@@ -17,7 +26,7 @@ export default function CustomCursor() {
     };
 
     const onMouseEnterLink = (event: MouseEvent) => {
-      const link = event.target as HTMLAnchorElement;
+      const link = event.target;
       if (link) {
         gsap.to(cursor, { scale: 4 });
         if (cursorText) {
@@ -35,20 +44,27 @@ export default function CustomCursor() {
       }
     };
 
-    document.addEventListener("mousemove", onMouseMove);
-    links.forEach((link) => {
-      link.addEventListener("mouseenter", onMouseEnterLink);
-      link.addEventListener("mouseleave", onMouseLeaveLink);
-    });
+    if (isWideScreen) {
+      document.addEventListener("mousemove", onMouseMove);
+      links.forEach((link) => {
+        link.addEventListener("mouseenter", onMouseEnterLink);
+        link.addEventListener("mouseleave", onMouseLeaveLink);
+      });
+    }
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       document.removeEventListener("mousemove", onMouseMove);
       links.forEach((link) => {
         link.removeEventListener("mouseenter", onMouseEnterLink);
         link.removeEventListener("mouseleave", onMouseLeaveLink);
       });
     };
-  }, []);
+  }, [isWideScreen]);
+
+  if (!isWideScreen) {
+    return null; // No renderizar el cursor si la pantalla es demasiado estrecha
+  }
 
   return (
     <div>
