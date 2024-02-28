@@ -86,6 +86,7 @@ export default function Destination() {
             height={200}
             className="lg:min-h-[60vh] md:w-auto md:pt-11 md:min-h-[40vh]"
             placeholder="blur"
+            priority
           ></Image>
         </div>
         <div
