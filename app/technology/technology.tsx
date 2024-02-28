@@ -122,7 +122,7 @@ export default function Technology() {
         </ul>
 
         <div className="col-span-2 text-cream lg:col-start-2 lg:row-start-2 lg:col-span-1 lg:ml-10 lg:mt-28">
-          <h2 className="text-trueGray-500 font-barlow text-xl text-center tracking-widest lg:text-start lg:text-2xl text-lightBlue">
+          <h2 className="font-barlow text-xl text-center tracking-widest lg:text-start lg:text-2xl text-lightBlue">
             THE TERMINOLOGY ...
           </h2>
           <h3 className="font-bellefair text-3xl uppercase text-center py-5 lg:text-start lg:text-6xl md:text-4xl text-cream">
