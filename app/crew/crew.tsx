@@ -1,13 +1,15 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import data from "@/lib/data.json";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import getImagePath from "@/lib/getImageBackground";
 
 export default function Crew() {
-  const container = useRef<HTMLInputElement | null>(null);
+  const container = useRef<HTMLInputElement | null>(null); //GSAP
+  const [windowWidth, setWindowWidth] = useState<number>(0);
   const { crew } = data;
   const [member, setMember] = useState(crew[0]); //read the first default member data
   const { contextSafe } = useGSAP({ scope: container });
@@ -65,11 +67,21 @@ export default function Crew() {
     { scope: container }
   );
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    handleResize(); // Call initially
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const imagePath = getImagePath("crew", windowWidth);
+
   return (
-    <main
-      ref={container}
-      className="bg-crew-bg-sm w-screen bg-center-bottom md:bg-crew-bg-md lg:bg-crew-bg-lg bg-cover min-h-screen bg-bottom"
-    >
+    <main ref={container} className="w-screen min-h-screen relative">
+      <Image src={imagePath} alt="background-crew" fill priority></Image>
       <div
         id="gridCrew"
         className="grid grid-cols-2 grid-rows-[fit-content] gap-4 w-screen pt-[14vh] lg:min-h-screen lg:w-[85vw] m-auto lg:pt-[20vh]"
