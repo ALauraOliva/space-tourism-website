@@ -88,7 +88,6 @@ export default function NavBar() {
         className="pl-7 z-10"
         width={80}
         height={80}
-        placeholder="blur"
       />
       <div
         id="containerLinks"
