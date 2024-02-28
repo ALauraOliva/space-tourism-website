@@ -88,6 +88,7 @@ export default function Crew() {
             width={200}
             height={200}
             className="lg:h-[80vh] lg:pt-11 md:h-[50vh] mx-auto w-auto"
+            placeholder="blur"
           ></Image>
           <div className="w-4/5 h-[0.5px] bg-trueGray-500 mx-auto rounded-sm lg:hidden"></div>
         </div>

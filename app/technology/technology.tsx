@@ -88,6 +88,7 @@ export default function Technology() {
             width={200}
             height={200}
             className="w-full lg:hidden" // Oculta la imagen en pantallas grandes (landscape)
+            placeholder="blur"
           />
 
           <Image

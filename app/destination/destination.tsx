@@ -85,6 +85,7 @@ export default function Destination() {
             width={200}
             height={200}
             className="lg:min-h-[60vh] md:w-auto md:pt-11 md:min-h-[40vh]"
+            placeholder="blur"
           ></Image>
         </div>
         <div
