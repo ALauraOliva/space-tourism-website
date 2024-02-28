@@ -80,7 +80,7 @@ export default function Destination() {
             &nbsp;&nbsp;&nbsp;Pick your destination
           </h1>
           <Image
-            src={`/assets/destination/image-${planet.name}.webp`}
+            src={`/assets/destination/image-${planet.name.toLowerCase()}.webp`}
             alt={planet.name}
             width={200}
             height={200}
