@@ -9,7 +9,6 @@ import { useGSAP } from "@gsap/react";
 export default function Destination() {
   const container = useRef<HTMLInputElement | null>(null);
   const { destinations } = data;
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [planet, setPlanet] = useState(destinations[0]); //read moon data first
   const { contextSafe } = useGSAP({ scope: container });
   const changePlanet = contextSafe(
@@ -33,22 +32,20 @@ export default function Destination() {
             if (planetSelected) {
               setPlanet(planetSelected);
             }
-            if (imageLoaded) {
-              gsap.fromTo(
-                "#destinationTitles > img , #planetDesc>:not(ul)",
-                {
-                  delay: 0,
-                  x: -100,
-                  opacity: 0,
-                },
-                {
-                  x: 0,
-                  duration: 1.5,
-                  opacity: 1,
-                  ease: "slow",
-                }
-              );
-            }
+            gsap.fromTo(
+              "#destinationTitles > img , #planetDesc>:not(ul)",
+              {
+                delay: 0,
+                x: -100,
+                opacity: 0,
+              },
+              {
+                x: 0,
+                duration: 1.5,
+                opacity: 1,
+                ease: "slow",
+              }
+            );
           },
         }
       );
@@ -88,7 +85,6 @@ export default function Destination() {
             width={200}
             height={200}
             className="lg:min-h-[60vh] md:w-auto md:pt-11 md:min-h-[40vh]"
-            onLoadingComplete={() => setImageLoaded(true)}
           ></Image>
         </div>
         <div

@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 
-export default function CustomCursor(): JSX.Element {
+export default function CustomCursor() {
   useEffect(() => {
     const cursor: HTMLElement | null = document.getElementById("custom-cursor");
     const links: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("a");
@@ -24,7 +24,7 @@ export default function CustomCursor(): JSX.Element {
           cursorText.style.display = "block";
         }
       } else {
-        gsap.to(cursor, { scale: 5 });
+        gsap.to(cursor, { scale: 0 });
       }
     };
 
