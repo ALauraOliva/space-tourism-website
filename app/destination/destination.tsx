@@ -47,6 +47,9 @@ export default function Destination() {
         opacity: 0,
         scale: 0.4,
         ease: "circ.inOut",
+        onComplete: () => {
+          setInitialAnimationDone(true);
+        },
       });
 
       gsap.to("#destinationTitles > img", {
@@ -55,9 +58,6 @@ export default function Destination() {
         ease: "none",
         duration: 100,
         repeat: -1,
-        onComplete: () => {
-          setInitialAnimationDone(true);
-        },
       });
     },
     { scope: container }

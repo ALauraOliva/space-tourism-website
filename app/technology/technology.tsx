@@ -107,20 +107,22 @@ export default function Technology() {
             height={200}
             className="w-full hidden lg:block lg:w-auto lg:h-full select-none" // Oculta la imagen en pantallas pequeñas (portrait)
             onLoad={() => {
-              gsap.fromTo(
-                "#gridTech>:not(h1, ul)",
-                {
-                  delay: 0,
-                  x: -30,
-                  opacity: 0,
-                },
-                {
-                  x: 0,
-                  duration: 1.5,
-                  opacity: 1,
-                  ease: "slow",
-                }
-              );
+              if (initialAnimationDone) {
+                gsap.fromTo(
+                  "#gridTech>:not(h1, ul)",
+                  {
+                    delay: 0,
+                    x: -30,
+                    opacity: 0,
+                  },
+                  {
+                    x: 0,
+                    duration: 1.5,
+                    opacity: 1,
+                    ease: "slow",
+                  }
+                );
+              }
             }}
           />
         </div>
