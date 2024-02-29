@@ -29,8 +29,9 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://space-tourism-project-emtd0ytaa-alauraoliva.vercel.app/)
+<!-- - Solution URL: [Click Me](https://your-solution-url.com) -->
+
+- Live Site URL: [Click Me!](https://space-tourism-project-emtd0ytaa-alauraoliva.vercel.app/)
 
 ## My process
 
