@@ -10,6 +10,7 @@ export default function Destination() {
   const container = useRef<HTMLInputElement | null>(null);
   const { destinations } = data;
   const [planet, setPlanet] = useState(destinations[0]); //read moon data first
+  const [initialAnimationDone, setInitialAnimationDone] = useState(false);
   const { contextSafe } = useGSAP({ scope: container });
   const changePlanet = contextSafe(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -31,22 +32,7 @@ export default function Destination() {
           onComplete: () => {
             if (planetSelected) {
               setPlanet(planetSelected);
-              console.log(planetSelected);
             }
-            gsap.fromTo(
-              "#destinationTitles > img , #planetDesc>:not(ul)",
-              {
-                delay: 0,
-                x: -100,
-                opacity: 0,
-              },
-              {
-                x: 0,
-                duration: 1.5,
-                opacity: 1,
-                ease: "slow",
-              }
-            );
           },
         }
       );
@@ -69,6 +55,9 @@ export default function Destination() {
         ease: "none",
         duration: 100,
         repeat: -1,
+        onComplete: () => {
+          setInitialAnimationDone(true);
+        },
       });
     },
     { scope: container }
@@ -94,6 +83,22 @@ export default function Destination() {
             width={200}
             height={200}
             className="lg:min-h-[60vh] md:w-auto md:pt-11 md:min-h-[40vh] select-none"
+            onLoad={() => {
+              gsap.fromTo(
+                "#destinationTitles > img , #planetDesc>:not(ul)",
+                {
+                  delay: 0,
+                  x: -100,
+                  opacity: 0,
+                },
+                {
+                  x: 0,
+                  duration: 1.5,
+                  opacity: 1,
+                  ease: "slow",
+                }
+              );
+            }}
           ></Image>
         </div>
         <div
