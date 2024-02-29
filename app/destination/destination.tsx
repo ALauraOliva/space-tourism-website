@@ -84,20 +84,22 @@ export default function Destination() {
             height={200}
             className="lg:min-h-[60vh] md:w-auto md:pt-11 md:min-h-[40vh] select-none"
             onLoad={() => {
-              gsap.fromTo(
-                "#destinationTitles > img , #planetDesc>:not(ul)",
-                {
-                  delay: 0,
-                  x: -100,
-                  opacity: 0,
-                },
-                {
-                  x: 0,
-                  duration: 1.5,
-                  opacity: 1,
-                  ease: "slow",
-                }
-              );
+              if (initialAnimationDone) {
+                gsap.fromTo(
+                  "#destinationTitles > img , #planetDesc>:not(ul)",
+                  {
+                    delay: 0,
+                    x: -100,
+                    opacity: 0,
+                  },
+                  {
+                    x: 0,
+                    duration: 1.5,
+                    opacity: 1,
+                    ease: "slow",
+                  }
+                );
+              }
             }}
           ></Image>
         </div>

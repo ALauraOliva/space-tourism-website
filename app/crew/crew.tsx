@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 
 export default function Crew() {
   const container = useRef<HTMLInputElement | null>(null); //GSAP
-  const [windowWidth, setWindowWidth] = useState<number>(0);
+  const [initialAnimationDone, setInitialAnimationDone] = useState(false);
   const { crew } = data;
   const [member, setMember] = useState(crew[0]); //read the first default member data
   const { contextSafe } = useGSAP({ scope: container });
@@ -33,20 +33,6 @@ export default function Crew() {
             if (memberSelected) {
               setMember(memberSelected);
             }
-            gsap.fromTo(
-              "#gridCrew>:not(h1, ul)",
-              {
-                delay: 0,
-                x: -100,
-                opacity: 0,
-              },
-              {
-                x: 0,
-                duration: 1.5,
-                opacity: 1,
-                ease: "slow",
-              }
-            );
           },
         }
       );
@@ -61,6 +47,9 @@ export default function Crew() {
         opacity: 0,
         scale: 0.4,
         ease: "circ.inOut",
+        onComplete: () => {
+          setInitialAnimationDone(true);
+        },
       });
     },
     { scope: container }
@@ -90,6 +79,24 @@ export default function Crew() {
             height={200}
             priority
             className="lg:h-[80vh] lg:pt-11 md:h-[50vh] mx-auto w-auto select-none"
+            onLoad={() => {
+              if (initialAnimationDone) {
+                gsap.fromTo(
+                  "#gridCrew>:not(h1, ul)",
+                  {
+                    delay: 0,
+                    x: -100,
+                    opacity: 0,
+                  },
+                  {
+                    x: 0,
+                    duration: 1.5,
+                    opacity: 1,
+                    ease: "slow",
+                  }
+                );
+              }
+            }}
           ></Image>
           <div className="w-4/5 h-[0.5px] bg-trueGray-500 mx-auto rounded-sm lg:hidden"></div>
         </div>

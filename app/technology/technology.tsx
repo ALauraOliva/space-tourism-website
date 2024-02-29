@@ -10,6 +10,7 @@ export default function Technology() {
   const container = useRef<HTMLInputElement | null>(null);
   const { technology } = data;
   const [tech, setTech] = useState(technology[0]);
+  const [initialAnimationDone, setInitialAnimationDone] = useState(false);
   const { contextSafe } = useGSAP({ scope: container });
   const changeTech = contextSafe(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -32,20 +33,6 @@ export default function Technology() {
             if (techSelected) {
               setTech(techSelected);
             }
-            gsap.fromTo(
-              "#gridTech>:not(h1, ul)",
-              {
-                delay: 0,
-                x: -30,
-                opacity: 0,
-              },
-              {
-                x: 0,
-                duration: 1.5,
-                opacity: 1,
-                ease: "slow",
-              }
-            );
           },
         }
       );
@@ -60,6 +47,9 @@ export default function Technology() {
         opacity: 0,
         scale: 0.4,
         ease: "circ.inOut",
+        onComplete: () => {
+          setInitialAnimationDone(true);
+        },
       });
     },
     { scope: container }
@@ -88,6 +78,24 @@ export default function Technology() {
             width={200}
             height={200}
             className="w-full lg:hidden select-none" // Oculta la imagen en pantallas grandes (landscape)
+            onLoad={() => {
+              if (initialAnimationDone) {
+                gsap.fromTo(
+                  "#gridTech>:not(h1, ul)",
+                  {
+                    delay: 0,
+                    x: -30,
+                    opacity: 0,
+                  },
+                  {
+                    x: 0,
+                    duration: 1.5,
+                    opacity: 1,
+                    ease: "slow",
+                  }
+                );
+              }
+            }}
           />
 
           <Image
@@ -98,6 +106,22 @@ export default function Technology() {
             width={200}
             height={200}
             className="w-full hidden lg:block lg:w-auto lg:h-full select-none" // Oculta la imagen en pantallas pequeñas (portrait)
+            onLoad={() => {
+              gsap.fromTo(
+                "#gridTech>:not(h1, ul)",
+                {
+                  delay: 0,
+                  x: -30,
+                  opacity: 0,
+                },
+                {
+                  x: 0,
+                  duration: 1.5,
+                  opacity: 1,
+                  ease: "slow",
+                }
+              );
+            }}
           />
         </div>
 
