@@ -61,6 +61,14 @@ export default function Destination() {
         scale: 0.4,
         ease: "circ.inOut",
       });
+
+      gsap.to("#destinationTitles > img", {
+        delay: 2.5,
+        rotation: 360,
+        ease: "none",
+        duration: 100,
+        repeat: -1,
+      });
     },
     { scope: container }
   );
