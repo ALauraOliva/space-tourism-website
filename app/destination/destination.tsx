@@ -31,6 +31,7 @@ export default function Destination() {
           onComplete: () => {
             if (planetSelected) {
               setPlanet(planetSelected);
+              console.log(planetSelected);
             }
             gsap.fromTo(
               "#destinationTitles > img , #planetDesc>:not(ul)",
@@ -92,7 +93,7 @@ export default function Destination() {
             alt={planet.name}
             width={200}
             height={200}
-            className="lg:min-h-[60vh] md:w-auto md:pt-11 md:min-h-[40vh]"
+            className="lg:min-h-[60vh] md:w-auto md:pt-11 md:min-h-[40vh] select-none"
           ></Image>
         </div>
         <div

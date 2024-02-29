@@ -87,7 +87,7 @@ export default function Technology() {
             alt={tech.name}
             width={200}
             height={200}
-            className="w-full lg:hidden" // Oculta la imagen en pantallas grandes (landscape)
+            className="w-full lg:hidden select-none" // Oculta la imagen en pantallas grandes (landscape)
           />
 
           <Image
@@ -97,7 +97,7 @@ export default function Technology() {
             alt={tech.name}
             width={200}
             height={200}
-            className="w-full hidden lg:block lg:w-auto lg:h-full" // Oculta la imagen en pantallas pequeñas (portrait)
+            className="w-full hidden lg:block lg:w-auto lg:h-full select-none" // Oculta la imagen en pantallas pequeñas (portrait)
           />
         </div>
 

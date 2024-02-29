@@ -85,7 +85,7 @@ export default function NavBar() {
         id="logo"
         src="/svg/logo.svg"
         alt="logo-navbar SVG"
-        className="pl-7 z-10"
+        className="pl-7 z-10 select-none"
         width={80}
         height={80}
       />
