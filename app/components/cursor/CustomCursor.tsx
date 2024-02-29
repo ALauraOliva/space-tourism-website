@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 
 export default function CustomCursor() {
-  const [isWideScreen, setIsWideScreen] = useState(true);
+  const [isWideScreen, setIsWideScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
