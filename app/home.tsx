@@ -56,7 +56,7 @@ export default function Home() {
     >
       <div
         id="overlay"
-        className="absolute top-0 left-0 w-full h-screen bg-cream flex flex-col justify-center content-center z-10 text-cream"
+        className="absolute top-0 left-0 w-full h-screen bg-cream flex flex-col justify-center content-center z-30 text-cream"
       >
         <div className="text-center overflow-hidden">
           <h2 className="font-bellefair lg:text-7xl text-4xl ">

@@ -56,10 +56,8 @@ export default function Technology() {
   );
 
   return (
-    <main
-      ref={container}
-      className="bg-technology-bg-sm w-screen md:bg-technology-bg-md lg:bg-technology-bg-lg bg-cover min-h-screen bg-bottom"
-    >
+    <main ref={container}>
+      <div className="bg-technology-bg-sm w-screen md:bg-technology-bg-md lg:bg-technology-bg-lg bg-cover min-h-screen bg-bottom fixed"></div>
       <div
         id="gridTech"
         className="grid grid-cols-[fit-content] grid-rows-[fit-content] gap-4 w-screen pt-[14vh] lg:min-h-fit lg:w-[85vw] m-auto lg:pt-[20vh]"

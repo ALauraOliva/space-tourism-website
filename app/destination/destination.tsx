@@ -64,10 +64,8 @@ export default function Destination() {
   );
 
   return (
-    <main
-      ref={container}
-      className="bg-destination-bg-sm w-screen min-h-screen bg-left-top md:bg-destination-bg-md lg:bg-destination-bg-lg bg-cover"
-    >
+    <main ref={container}>
+      <div className="bg-destination-bg-sm w-full h-full bg-left-top md:bg-destination-bg-md lg:bg-destination-bg-lg bg-cover fixed"></div>
       <div className="grid grid-cols-2 grid-rows-1 gap-4 w-screen pt-[14vh] lg:min-h-screen lg:pt-[20vh] lg:w-[85vw] m-auto">
         <div
           id="destinationTitles"

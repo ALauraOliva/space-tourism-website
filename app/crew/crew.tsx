@@ -56,10 +56,8 @@ export default function Crew() {
   );
 
   return (
-    <main
-      ref={container}
-      className="bg-crew-bg-sm w-screen md:bg-crew-bg-md lg:bg-crew-bg-lg bg-cover min-h-screen bg-bottom"
-    >
+    <main ref={container}>
+      <div className="bg-crew-bg-sm w-screen md:bg-crew-bg-md lg:bg-crew-bg-lg bg-cover min-h-screen bg-bottom fixed"></div>
       <div
         id="gridCrew"
         className="grid grid-cols-2 grid-rows-[fit-content] gap-4 w-screen pt-[14vh] lg:min-h-screen lg:w-[85vw] m-auto lg:pt-[20vh]"
