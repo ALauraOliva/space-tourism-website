@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Destination from "./destination";
+import Destination from "../ui/destination/destination";
 
 export const metadata: Metadata = {
   title: "Destination",

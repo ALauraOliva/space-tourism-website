@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import NavBar from "./components/NavBar/Navbar";
-import CustomCursor from "./components/cursor/CustomCursor";
+import "./ui/globals.css";
+import NavBar from "./ui/navbar/navbar";
+import CustomCursor from "./ui/cursor/CustomCursor";
 
 //? if use react hooks, needs to add 'use client'
 

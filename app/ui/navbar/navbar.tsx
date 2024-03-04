@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { MobileMenuButton } from "./MobileMenuButton";
-import { NavButton } from "./NavButton";
+import { MobileMenuButton } from "./mobileMenu";
+import { NavButton } from "./desktopMenu";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { usePathname } from "next/navigation";

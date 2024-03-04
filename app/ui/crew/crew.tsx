@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import data from "@/lib/data.json";
+import { useState, useRef } from "react";
+import data from "@/app/lib/data.json";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";

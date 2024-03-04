@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Technology from "./technology";
+import Technology from "../ui/technology/technology";
 
 export const metadata: Metadata = {
   title: "Technology",

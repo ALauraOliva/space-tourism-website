@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Crew from "./crew";
+import Crew from "../ui/crew/crew";
 
 export const metadata: Metadata = {
   title: "Crew",
