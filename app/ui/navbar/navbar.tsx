@@ -107,6 +107,7 @@ export default function NavBar() {
       {/* Mobile Menu */}
       <button
         id="toggler"
+        aria-label="Mobile Menu"
         onClick={openNav}
         value={navOpen.toString()}
         className="md:hidden rounded-full w-14 h-14 backdrop-blur-sd transition-all hover:bg-cream hover:bg-opacity-15 relative

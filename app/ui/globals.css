@@ -5,11 +5,13 @@
 @font-face {
   font-family: "Barlow";
   src: url("/fonts/BarlowCondensed-ExtraLight.woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Bellefair";
   src: url("/fonts/Bellefair-Regular.woff2");
+  font-display: swap;
 }
 
 @layer components {
